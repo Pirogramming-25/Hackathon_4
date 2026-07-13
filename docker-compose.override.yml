@@ -1,0 +1,6 @@
+services:
+  web:
+    volumes:
+      - ./config:/app/config
+      - ./smartstep:/app/smartstep
+      - ./templates:/app/templates
