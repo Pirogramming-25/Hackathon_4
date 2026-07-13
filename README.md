@@ -116,12 +116,13 @@ Hackathon_4/
 
 ---
 
-🚀 로컬 실행 방법
+## 🚀 로컬 실행 방법
 
-이 프로젝트는 MySQL + Docker 환경입니다.
-로컬에 MySQL을 직접 설치할 필요 없이 Docker로 실행합니다.
-Docker Desktop이 켜져 있어야 합니다.
+> 이 프로젝트는 **MySQL + Docker** 환경입니다.
+> 로컬에 MySQL을 직접 설치할 필요 없이 Docker로 실행합니다.
+> **Docker Desktop이 켜져 있어야 합니다.**
 
+```bash
 # 1. 저장소 클론
 git clone https://github.com/Pirogramming-25/Hackathon_4.git
 cd Hackathon_4
@@ -132,17 +133,19 @@ cd Hackathon_4
 
 # 3. Docker로 실행 (MySQL + Django 컨테이너가 함께 실행됩니다)
 docker compose up --build
+```
 
 실행 후 브라우저에서 http://localhost:8000 접속
 
-bash# 종료: Ctrl + C
+```bash
+# 종료: Ctrl + C
 # 컨테이너 정리:
 docker compose down
+```
 
-
-⚠️ python manage.py migrate를 로컬에서 직접 실행하지 마세요.
-우리 프로젝트의 DB(MySQL)는 Docker 컨테이너 안에서 동작하며,
-마이그레이션은 컨테이너 실행 시 자동으로 처리됩니다.
+> ⚠️ `python manage.py migrate`를 로컬에서 직접 실행하지 마세요.
+> 우리 프로젝트의 DB(MySQL)는 Docker 컨테이너 안에서 동작하며,
+> 마이그레이션은 컨테이너 실행 시 자동으로 처리됩니다.
 
 ---
 
