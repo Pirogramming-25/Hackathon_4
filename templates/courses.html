@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>코스 목록 — 스마트 한걸음</title>
+    <meta name="description" content="스마트폰 기초와 인터넷 기초, 배우고 싶은 코스를 골라 한 걸음씩 학습해요." />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script type="module" src="assets/js/app.js"></script>
+  </head>
+  <body>
+    <main class="page">
+      <a href="index.html" class="back-link">← 처음으로</a>
+      <h1 class="title-lg mt-4">무엇을 배워볼까요?</h1>
+      <p class="text-lg mt-2">배우고 싶은 코스를 눌러주세요.</p>
+      <div class="stack gap-6 mt-8" id="courses-list"></div>
+
+      <div class="mt-10 a11y">
+        <button type="button" data-a11y="lt" aria-pressed="false"><span aria-hidden="true">🔠</span> 글자 크게</button>
+        <button type="button" data-a11y="hc" aria-pressed="false"><span aria-hidden="true">🌓</span> 고대비 모드</button>
+      </div>
+    </main>
+    <script type="module" src="assets/js/pages/courses.js"></script>
+  </body>
+</html>
