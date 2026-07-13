@@ -105,7 +105,7 @@ Hackathon_4/
 │   └── static/          #   CSS · JS
 ├── manage.py
 ├── requirements.txt     # 의존성 목록
-└── .github/             # 이슈 · PR 템플릿
+└── .github/             # PR 템플릿
 ```
 
 ---
