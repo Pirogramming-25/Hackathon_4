@@ -28,6 +28,9 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 
+# CSRF 실패도 API 에러 포맷({"detail": ...})으로 응답한다.
+CSRF_FAILURE_VIEW = 'smartstep.views.csrf_failure'
+
 
 # Application definition
 
