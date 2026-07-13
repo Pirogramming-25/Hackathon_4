@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>스마트 한걸음 — 눌러보며 배우는 스마트폰</title>
+    <meta name="description" content="65세 이상 어르신을 위한 실습형 스마트폰 학습 서비스. 설명서 대신 직접 눌러보며 전화, 문자, 사진, 인터넷을 배워요." />
+    <meta name="author" content="스마트 한걸음" />
+    <meta property="og:title" content="스마트 한걸음 — 눌러보며 배우는 스마트폰" />
+    <meta property="og:description" content="65세 이상 어르신을 위한 실습형 스마트폰 학습 서비스. 설명서 대신 직접 눌러보며 전화, 문자, 사진, 인터넷을 배워요." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script type="module" src="assets/js/app.js"></script>
+  </head>
+  <body>
+    <main class="page page--center">
+      <img src="assets/img/logo.png" alt="스마트 한걸음 로고" width="512" height="512" class="logo" />
+      <h1 class="title-xl mt-4">스마트 한걸음</h1>
+      <p class="text-lead mt-4">
+        설명서 대신 연습장.<br />
+        직접 눌러보며 배우는 스마트폰.
+      </p>
+
+      <div class="stack gap-5 mt-10" style="width:100%;">
+        <a class="course-btn" href="course.html?id=smartphone">
+          <span class="emoji" aria-hidden="true">📱</span>
+          <span>
+            <span class="title">스마트폰 기초 코스</span>
+            <span class="subtitle">전화 · 연락처 · 문자 · 사진</span>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="course-btn" href="course.html?id=internet">
+          <span class="emoji" aria-hidden="true">🌐</span>
+          <span>
+            <span class="title">인터넷 기초 코스</span>
+            <span class="subtitle">와이파이 연결 · 인터넷 검색</span>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <div id="continue-slot"></div>
+      </div>
+
+      <div class="mt-10">
+        <div class="a11y">
+          <button type="button" data-a11y="lt" aria-pressed="false"><span aria-hidden="true">🔠</span> 글자 크게</button>
+          <button type="button" data-a11y="hc" aria-pressed="false"><span aria-hidden="true">🌓</span> 고대비 모드</button>
+        </div>
+      </div>
+
+      <p class="text-base mt-10">천천히, 나의 속도로 한 걸음씩 배워요. 🧡</p>
+    </main>
+
+    <script type="module" src="assets/js/pages/home.js"></script>
+  </body>
+</html>
