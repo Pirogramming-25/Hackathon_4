@@ -28,6 +28,9 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 
+# CSRF 실패도 API 에러 포맷({"detail": ...})으로 응답한다.
+CSRF_FAILURE_VIEW = 'smartstep.views.csrf_failure'
+
 
 # Application definition
 
@@ -56,7 +59,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,5 +126,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
+# 프론트 HTML이 assets/css/... 처럼 참조하므로 STATIC_URL을 'assets/'로 맞춘다.
+# 덕분에 HTML을 {% static %} 태그로 고치지 않아도 그대로 동작한다.
+STATIC_URL = 'assets/'
+STATICFILES_DIRS = [BASE_DIR / 'templates' / 'assets']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
