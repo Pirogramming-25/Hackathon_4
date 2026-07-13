@@ -95,44 +95,54 @@
 
 ```
 Hackathon_4/
-├── config/              # Django 프로젝트 설정 (settings, urls)
+├── config/              # Django 프로젝트 설정 (settings, urls, wsgi)
 ├── smartstep/           # 학습 도메인 앱
+│   ├── migrations/      #   DB 마이그레이션
 │   ├── models.py        #   코스 · 챕터 · 스텝 · 진도 모델
 │   ├── views.py         #   화면 로직 및 진도 저장 API
-│   ├── urls.py          #   앱 URL 라우팅
 │   ├── admin.py         #   콘텐츠 관리 (Django Admin)
-│   ├── templates/       #   HTML 템플릿
-│   └── static/          #   CSS · JS
+│   └── ...
+├── media/               # 업로드 파일 (스크린샷 등)
+├── .github/             # PR 템플릿
+├── Dockerfile           # Django 이미지 빌드 설정
+├── docker-compose.yml   # MySQL + Django 컨테이너 정의
+├── .dockerignore
+├── .env                 # 환경변수 (git 미포함, 각자 생성)
 ├── manage.py
 ├── requirements.txt     # 의존성 목록
-└── .github/             # PR 템플릿
+├── CONTRIBUTING.md      # 협업 가이드
+└── README.md
 ```
 
 ---
 
-## 🚀 로컬 실행 방법
+🚀 로컬 실행 방법
 
-```bash
+이 프로젝트는 MySQL + Docker 환경입니다.
+로컬에 MySQL을 직접 설치할 필요 없이 Docker로 실행합니다.
+Docker Desktop이 켜져 있어야 합니다.
+
 # 1. 저장소 클론
 git clone https://github.com/Pirogramming-25/Hackathon_4.git
 cd Hackathon_4
 
-# 2. 가상환경 생성 및 활성화
-python -m venv venv
-source venv/Scripts/activate    # Windows (Git Bash)
-# source venv/bin/activate      # Mac / Linux
+# 2. .env 파일 생성
+#    최상위 폴더에 .env 파일을 만들고, 팀에서 공유한 값을 넣습니다.
+#    (.env는 git에 올라가지 않으므로 각자 생성해야 합니다)
 
-# 3. 패키지 설치
-pip install -r requirements.txt
+# 3. Docker로 실행 (MySQL + Django 컨테이너가 함께 실행됩니다)
+docker compose up --build
 
-# 4. 마이그레이션
-python manage.py migrate
+실행 후 브라우저에서 http://localhost:8000 접속
 
-# 5. 서버 실행
-python manage.py runserver
-```
+bash# 종료: Ctrl + C
+# 컨테이너 정리:
+docker compose down
 
-실행 후 브라우저에서 http://127.0.0.1:8000 접속
+
+⚠️ python manage.py migrate를 로컬에서 직접 실행하지 마세요.
+우리 프로젝트의 DB(MySQL)는 Docker 컨테이너 안에서 동작하며,
+마이그레이션은 컨테이너 실행 시 자동으로 처리됩니다.
 
 ---
 
