@@ -83,8 +83,8 @@
 | -------- | ----------------------- |
 | Backend  | Django                  |
 | Frontend | HTML · CSS · Vanilla JS |
-| Database | SQLite                  |
-| 배포     | Docker                  |
+| Database | MySQL                   |
+| 배포     | Docker · AWS EC2        |
 
 **저장 방식:** 로그인 없이 **세션 기반**으로 진도를 서버 DB에 저장하여 회원가입 장벽을 없앴습니다.
 (추후 로그인 기반으로 확장하여 기기 변경 시에도 이어보기 및 보호자 계정 연동 가능)
@@ -95,22 +95,38 @@
 
 ```
 Hackathon_4/
-├── config/              # Django 프로젝트 설정 (settings, urls, wsgi)
-├── smartstep/           # 학습 도메인 앱
-│   ├── migrations/      #   DB 마이그레이션
-│   ├── models.py        #   코스 · 챕터 · 스텝 · 진도 모델
-│   ├── views.py         #   화면 로직 및 진도 저장 API
-│   ├── admin.py         #   콘텐츠 관리 (Django Admin)
-│   └── ...
-├── media/               # 업로드 파일 (스크린샷 등)
-├── .github/             # PR 템플릿
-├── Dockerfile           # Django 이미지 빌드 설정
-├── docker-compose.yml   # MySQL + Django 컨테이너 정의
+├── config/                      # Django 프로젝트 설정
+│   ├── settings.py              #   환경변수·DB·정적파일 설정
+│   ├── urls.py                  #   전체 URL 라우팅 (페이지 + API)
+│   └── wsgi.py / asgi.py
+├── smartstep/                   # 학습 도메인 앱
+│   ├── migrations/              #   DB 마이그레이션
+│   ├── models.py                #   코스 · 챕터 · 스텝 · 진도 모델
+│   ├── views.py                 #   API 로직 (진도 저장 등)
+│   ├── urls.py                  #   API 라우팅
+│   └── admin.py                 #   콘텐츠 관리 (Django Admin)
+├── templates/                   # 프론트 화면
+│   ├── assets/                  #   CSS · JS
+│   ├── index.html               #   메인
+│   ├── courses.html             #   코스 목록
+│   ├── course.html              #   코스 상세
+│   ├── learn.html               #   실습 화면
+│   └── complete.html            #   완료 화면
+├── docs/                        # 설계 문서
+│   ├── ERD.md                   #   데이터 모델 설계
+│   └── API.md                   #   API 명세
+├── media/                       # 업로드 파일 (스크린샷 등)
+├── .github/
+│   ├── workflows/deploy.yml     #   CI/CD (GitHub Actions 자동 배포)
+│   └── pull_request_template.md
+├── Dockerfile                   # Django 이미지 빌드 설정
+├── docker-compose.yml           # MySQL + Django 컨테이너 정의
+├── docker-compose.override.yml  # 로컬 개발용 소스 마운트 (EC2엔 두지 않음)
 ├── .dockerignore
-├── .env                 # 환경변수 (git 미포함, 각자 생성)
+├── .env                         # 환경변수 (git 미포함, 각자 생성)
 ├── manage.py
-├── requirements.txt     # 의존성 목록
-├── CONTRIBUTING.md      # 협업 가이드
+├── requirements.txt             # 의존성 목록
+├── CONTRIBUTING.md              # 협업 가이드
 └── README.md
 ```
 
@@ -146,6 +162,25 @@ docker compose down
 > ⚠️ `python manage.py migrate`를 로컬에서 직접 실행하지 마세요.
 > 우리 프로젝트의 DB(MySQL)는 Docker 컨테이너 안에서 동작하며,
 > 마이그레이션은 컨테이너 실행 시 자동으로 처리됩니다.
+
+---
+
+## 🔄 배포 (CI/CD)
+
+`develop` 브랜치에 merge되면 GitHub Actions가 자동으로
+이미지를 빌드하여 Docker Hub에 push하고, EC2에 배포합니다.
+배포 현황은 저장소의 **Actions 탭**에서 확인할 수 있습니다.
+
+---
+
+## ⚠️ 배포 시 주의사항
+
+`docker-compose.override.yml`은 **로컬 개발 전용**입니다 (소스 코드 마운트).
+Docker Compose가 자동으로 읽는 파일이라, **EC2 배포 서버에는 절대 두면 안 됩니다.**
+EC2에 이 파일이 있으면 소스 폴더 자리에 빈 폴더가 마운트되어 앱이 죽습니다.
+
+- 로컬: `docker compose up` (override 자동 적용, 소스 마운트됨)
+- EC2: `docker-compose.yml`과 `.env`만 두고 실행 (override 파일 없음)
 
 ---
 
