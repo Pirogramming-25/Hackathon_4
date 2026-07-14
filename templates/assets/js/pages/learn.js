@@ -1,5 +1,5 @@
 import { api } from "../api.js";
-import { bindTaps } from "../phone.js";
+import { bindTaps, phoneFrame } from "../phone.js";
 
 const params = new URLSearchParams(location.search);
 const chapterId = params.get("chapter");
@@ -101,14 +101,7 @@ async function main() {
     hintEl.hidden = !hint;
 
     // Wrap the current step's HTML in the phone frame.
-    phoneSlot.innerHTML = `
-      <div class="phone-wrap">
-        <div class="phone" data-wrongtap>
-          <div class="phone__status"><span>12:30</span><span aria-hidden="true">📶 🔋</span></div>
-          <div class="phone__screen">${current.html}</div>
-          <div class="phone__nav" aria-hidden="true"><span>|||</span><span class="dot"></span><span>◁</span></div>
-        </div>
-      </div>`;
+    phoneSlot.innerHTML = phoneFrame(current.html);
     bindTaps(phoneSlot, advance, wrongTap);
 
     btnPrev.disabled = step === 0;

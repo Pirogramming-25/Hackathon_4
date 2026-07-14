@@ -295,37 +295,52 @@ a { color: inherit; text-decoration: none; }
 
 .learn-nav { display: flex; gap: 1rem; margin-top: 1.5rem; }
 
-/* ---------- Phone simulator ---------- */
-.phone-wrap { max-width: 340px; margin: 0 auto; width: 100%; user-select: none; }
+/* ---------- Phone simulator (ported 1:1 from hackertone-ui.html) ---------- */
+.phone-wrap { width: 340px; max-width: 100%; margin: 0 auto; user-select: none; }
 .phone {
+  position: relative;
+  width: 340px;
+  max-width: 100%;
+  height: 720px;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-radius: 40px;
+  border: 8px solid #1D1B20;
   overflow: hidden;
-  border-radius: 2.5rem;
-  border: 10px solid oklch(0.33 0.045 55 / 0.85);
-  background: var(--phone-bg);
   box-shadow: var(--shadow-warm);
 }
 .phone__status {
+  position: relative;
+  flex: none;
+  height: 48px;
   display: flex; align-items: center; justify-content: space-between;
-  background: var(--phone-bg);
-  padding: 0.5rem 1.25rem 0.25rem;
-  font-size: 0.7rem; font-weight: 500; color: var(--phone-muted);
+  padding: 0 22px;
+  font-size: 14px; color: #1D1B20;
 }
+.phone__time { font-weight: 500; }
+.camera-cutout {
+  position: absolute; left: 50%; top: 12px; transform: translateX(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #1D1B20;
+}
+.status-icons { display: flex; align-items: center; gap: 6px; color: #1D1B20; }
+.status-icons svg { display: block; }
 .phone__screen {
   position: relative;
+  flex: 1;
   display: flex; flex-direction: column;
-  height: 500px;
   overflow: hidden;
   background: var(--phone-bg);
   color: var(--phone-fg);
 }
 .phone__nav {
-  display: flex; align-items: center; justify-content: space-around;
-  border-top: 1px solid var(--phone-line);
-  background: var(--phone-bg);
-  padding: 0.5rem 0;
-  color: var(--phone-muted);
+  position: absolute;
+  bottom: 14px; left: 50%; transform: translateX(-50%);
+  width: 120px; height: 5px;
+  border-radius: 3px;
+  background: #1D1B20;
 }
-.phone__nav .dot { height: 1rem; width: 1rem; border-radius: 999px; border: 2px solid var(--phone-muted); }
 
 .phone-wallpaper {
   flex: 1;
@@ -345,6 +360,36 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.7rem; font-weight: 500; color: var(--phone-bg);
   text-shadow: 0 1px 2px rgba(0,0,0,.35);
 }
+
+/* Gradient home screen (call chapter, step 0) */
+.dialpad-wallpaper {
+  position: relative;
+  flex: 1;
+  background: linear-gradient(90deg, #66A1F3 0%, #22C9A6 100%);
+}
+.app-row {
+  position: absolute;
+  left: 18px;
+  bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.app-icon {
+  display: block;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: default;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+.app-icon svg, .app-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
+button.app-icon { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 
 .app-bar {
   border-bottom: 1px solid var(--phone-line);
@@ -405,13 +450,110 @@ a { color: inherit; text-decoration: none; }
 .field__value { font-size: 1rem; color: var(--phone-fg); }
 .field__value--empty { color: var(--phone-muted); }
 
-.keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
-.keypad span {
-  display: flex; align-items: center; justify-content: center;
-  height: 2.75rem; border-radius: 999px;
-  background: oklch(0.92 0.005 80 / 0.6);
-  font-size: 1.125rem; font-weight: 600; color: var(--phone-fg);
+/* Dialpad screen glue (not in hackertone-ui.html — holds the entered-number line
+   that the lesson needs; the keypad/key/call-btn below stay pixel-identical). */
+.dialpad-screen {
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center;
+  padding-top: 32px;
 }
+.dialpad-number {
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: #848487;
+  margin-bottom: 44px;
+}
+.dialpad-number--filled { font-size: 20px; font-weight: 700; color: #1D1B20; }
+.dialpad-call { display: flex; justify-content: center; margin-top: 26px; }
+
+/* In-call screen (call chapter, step 4) */
+.call-live {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(90deg, #66A1F3 0%, #22C9A6 100%);
+  padding: 28px 20px 32px;
+}
+.call-live__timer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: #FFFFFF;
+  font-size: 0.8rem;
+}
+.call-live__timer svg { width: 16px; height: 16px; flex-shrink: 0; }
+.call-live__name {
+  margin-top: 28px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: center;
+}
+.call-live__actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  width: 100%;
+}
+.call-live__row { display: flex; justify-content: center; gap: 26px; width: 100%; }
+.call-live__item { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 64px; }
+.call-live__btn {
+  width: 56px;
+  height: 56px;
+  background: #387AFF;
+  border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+}
+.call-live__btn svg { width: 30px; height: 30px; }
+.call-live__item span { font-size: 0.75rem; color: #FFFFFF; text-align: center; }
+.call-live__item span.small { font-size: 0.65rem; }
+.call-live__end {
+  width: 64px;
+  height: 64px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: #D93E36;
+  display: flex; align-items: center; justify-content: center;
+}
+.call-live__end img { width: 26px; height: 26px; display: block; }
+
+.keypad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+}
+.key-row { display: flex; gap: 46px; justify-content: center; }
+.key {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000000;
+  -webkit-tap-highlight-color: transparent;
+}
+.key:active { opacity: 0.6; }
+.key .digit { font-size: 32px; font-weight: 400; line-height: 1; }
+.key .letters {
+  display: block;
+  min-height: 13px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #848487;
+  line-height: 1.3;
+  text-align: center;
+}
+.key .symbol { font-size: 32px; color: #000000; }
 
 .pad { padding: 1rem; }
 .pad-t { padding-top: 1rem; }
@@ -447,11 +589,16 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.5rem;
 }
 .call-btn {
+  width: 62px;
+  height: 62px;
   display: flex; align-items: center; justify-content: center;
-  height: 3.5rem; width: 3.5rem; margin: 0 auto;
-  border-radius: 999px; background: var(--call); color: var(--call-foreground);
-  font-size: 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #11A960 0%, #11A960 100%);
+  border: none;
+  cursor: pointer;
 }
+.call-btn:active { opacity: 0.85; }
+.call-btn svg { width: 30px; height: 30px; }
 .call-btn--dim { opacity: 0.4; }
 .hang-btn {
   display: flex; align-items: center; justify-content: center;
