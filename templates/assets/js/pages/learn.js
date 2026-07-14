@@ -1,32 +1,43 @@
-import { lessons } from "../lessons.js";
-import { findChapter } from "../courses.js";
+import { api } from "../api.js";
 import { bindTaps } from "../phone.js";
-import { clearLast, getLast, markComplete, saveLast } from "../progress.js";
 
 const params = new URLSearchParams(location.search);
 const chapterId = params.get("chapter");
-const steps = lessons[chapterId];
-const info = findChapter(chapterId);
 const root = document.getElementById("learn-root");
 
-if (!steps || !info) {
+function showError(message) {
   root.innerHTML = `
-    <p class="title-md">챕터를 찾을 수 없어요.</p>
+    <p class="title-md">${message}</p>
     <a class="btn-primary mt-6" href="courses.html">코스 목록으로</a>`;
-} else {
-  document.title = `${info.chapter.name} 실습 — 스마트 한걸음`;
-  const total = steps.length;
+}
 
-  const last = getLast();
-  let step =
-    last && last.chapterId === chapterId && last.step < total ? last.step : 0;
+async function main() {
+  if (!chapterId) {
+    showError("챕터를 찾을 수 없어요.");
+    return;
+  }
+
+  let data;
+  try {
+    data = await api.get(`/chapters/${encodeURIComponent(chapterId)}/steps/`);
+  } catch (err) {
+    showError(err.message);
+    return;
+  }
+
+  const { chapter, course, steps, is_completed, last_step } = data;
+  const total = steps.length;
+  document.title = `${chapter.name} 실습 — 스마트 한걸음`;
+
+  // is_completed=true("다시 하기")면 last_step을 무시하고 0부터 시작한다 (API.md 3번).
+  let step = !is_completed && last_step < total ? last_step : 0;
   let hint = false;
   let hintTimer;
 
   root.innerHTML = `
     <div class="learn-header">
-      <a href="course.html?id=${info.course.id}" class="back-link">← 나가기</a>
-      <p class="title">${info.chapter.emoji} ${info.chapter.name}</p>
+      <a href="course.html?id=${course.slug}" class="back-link">← 나가기</a>
+      <p class="title">${chapter.emoji} ${chapter.name}</p>
       <p class="step" id="step-label"></p>
     </div>
     <div class="progress mt-3" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="prog-wrap">
@@ -55,15 +66,14 @@ if (!steps || !info) {
 
   function goTo(n) {
     step = n;
-    saveLast(chapterId, n);
+    // fire-and-forget: 실패해도 학습 흐름(화면 전환)을 막지 않는다 (API.md 5번).
+    api.patch(`/progress/${encodeURIComponent(chapterId)}/`, { last_step: n }).catch(() => {});
     hint = false;
     render();
   }
 
   function advance() {
     if (step + 1 >= total) {
-      markComplete(chapterId);
-      clearLast();
       location.href = `complete.html?chapter=${encodeURIComponent(chapterId)}`;
     } else {
       goTo(step + 1);
@@ -109,3 +119,5 @@ if (!steps || !info) {
 
   render();
 }
+
+main();
