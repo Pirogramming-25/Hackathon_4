@@ -1,0 +1,199 @@
+{
+ "call": [
+  {
+   "order": 0,
+   "instruction": "초록색 전화 앱을 눌러보세요.",
+   "html": "<div class=\"phone-wallpaper\"><div class=\"app-grid\"><button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"전화 앱 열기\">\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">📞</span>\n        <span class=\"app-cell__label\">전화</span>\n      </span></button>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">👤</span>\n        <span class=\"app-cell__label\">연락처</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">💬</span>\n        <span class=\"app-cell__label\">메시지</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">📷</span>\n        <span class=\"app-cell__label\">카메라</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">🖼️</span>\n        <span class=\"app-cell__label\">갤러리</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">⚙️</span>\n        <span class=\"app-cell__label\">설정</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">🌐</span>\n        <span class=\"app-cell__label\">인터넷</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">⏰</span>\n        <span class=\"app-cell__label\">시계</span>\n      </span></div></div>"
+  },
+  {
+   "order": 1,
+   "instruction": "숫자 버튼(키패드)을 눌러 전화번호를 입력해보세요.",
+   "html": "\n      <div class=\"app-bar\">전화</div>\n      <div class=\"flex flex-1 flex-col justify-end gap-4 px-6 pb-6\">\n        <p class=\"text-center\" style=\"font-size:1.25rem;letter-spacing:.1em;color:var(--phone-muted);\">번호를 입력하세요</p>\n        <button type=\"button\" class=\"tap-target tap-target--block\" data-tap=\"correct\" aria-label=\"키패드\"><div class=\"keypad\"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>*</span><span>0</span><span>#</span></div></button>\n        <span class=\"call-btn call-btn--dim\">📞</span>\n      </div>"
+  },
+  {
+   "order": 2,
+   "instruction": "번호가 입력되었어요. 초록색 통화 버튼을 눌러보세요.",
+   "html": "\n      <div class=\"app-bar\">전화</div>\n      <div class=\"flex flex-1 flex-col justify-end gap-4 px-6 pb-6\">\n        <p class=\"text-center font-bold\" style=\"font-size:1.5rem;letter-spacing:.1em;color:var(--phone-fg);\">010-1234-5678</p>\n        <div class=\"keypad\"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>*</span><span>0</span><span>#</span></div>\n        <button type=\"button\" class=\"tap-target call-btn\" data-tap=\"correct\" aria-label=\"통화 걸기\">📞</button>\n      </div>"
+  },
+  {
+   "order": 3,
+   "instruction": "전화가 연결됐어요! 통화가 끝나면 빨간 버튼을 눌러 끊어보세요.",
+   "html": "\n      <div class=\"flex flex-1 flex-col items-center justify-between\" style=\"padding:2.5rem 0;\">\n        <div class=\"text-center\">\n          <span class=\"hero-emoji\" aria-hidden=\"true\">👵</span>\n          <p class=\"mt-3 font-bold\" style=\"font-size:1.25rem;color:var(--phone-fg);\">김영희</p>\n          <p class=\"mt-2\" style=\"font-size:.875rem;color:var(--call);\">통화 중 00:12</p>\n        </div>\n        <button type=\"button\" class=\"tap-target hang-btn\" data-tap=\"correct\" aria-label=\"통화 끊기\"><span>📞</span></button>\n      </div>"
+  },
+  {
+   "order": 4,
+   "instruction": "전화를 잘 걸고 끊으셨어요! 확인 버튼을 눌러 마무리해요.",
+   "html": "\n    <div class=\"done-screen\">\n      <span class=\"hero-emoji\" aria-hidden=\"true\">👏</span>\n      <p class=\"done-screen__msg\">전화 걸기 연습을 모두 마쳤어요!</p>\n      <button type=\"button\" class=\"tap-target done-screen__btn\" data-tap=\"correct\" aria-label=\"확인\">확인</button>\n    </div>"
+  }
+ ],
+ "contacts": [
+  {
+   "order": 0,
+   "instruction": "연락처 앱을 눌러보세요.",
+   "html": "<div class=\"phone-wallpaper\"><div class=\"app-grid\">\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">📞</span>\n        <span class=\"app-cell__label\">전화</span>\n      </span><button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"연락처 앱 열기\">\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">👤</span>\n        <span class=\"app-cell__label\">연락처</span>\n      </span></button>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">💬</span>\n        <span class=\"app-cell__label\">메시지</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">📷</span>\n        <span class=\"app-cell__label\">카메라</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">🖼️</span>\n        <span class=\"app-cell__label\">갤러리</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">⚙️</span>\n        <span class=\"app-cell__label\">설정</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">🌐</span>\n        <span class=\"app-cell__label\">인터넷</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">⏰</span>\n        <span class=\"app-cell__label\">시계</span>\n      </span></div></div>"
+  },
+  {
+   "order": 1,
+   "instruction": "새 연락처를 만들려면 주황색 ➕ 버튼을 눌러보세요.",
+   "html": "\n      <div class=\"app-bar\">연락처</div>\n      <div class=\"relative flex-1\">\n        <div class=\"phone-row\"><span aria-hidden=\"true\">👴</span><span>박철수</span></div>\n        <div class=\"phone-row\"><span aria-hidden=\"true\">👩</span><span>이순자</span></div>\n        <div class=\"phone-row\"><span aria-hidden=\"true\">👨</span><span>최민호</span></div>\n        <button type=\"button\" class=\"tap-target fab\" data-tap=\"correct\" aria-label=\"연락처 추가\">＋</button>\n      </div>"
+  },
+  {
+   "order": 2,
+   "instruction": "이름 입력란을 눌러보세요.",
+   "html": "\n      <div class=\"app-bar\">연락처 추가</div>\n      <div class=\"flex flex-1 flex-col gap-3 px-4 pad-t\">\n        <button type=\"button\" class=\"tap-target tap-target--block\" data-tap=\"correct\" aria-label=\"이름 입력란\"><div class=\"field\"><p class=\"field__label\">이름</p><p class=\"field__value field__value--empty\">이름을 입력하세요</p></div></button>\n        <div class=\"field\"><p class=\"field__label\">전화번호</p><p class=\"field__value field__value--empty\">번호를 입력하세요</p></div>\n      </div>"
+  },
+  {
+   "order": 3,
+   "instruction": "이름이 입력됐어요. 이번엔 전화번호 입력란을 눌러보세요.",
+   "html": "\n      <div class=\"app-bar\">연락처 추가</div>\n      <div class=\"flex flex-1 flex-col gap-3 px-4 pad-t\">\n        <div class=\"field\"><p class=\"field__label\">이름</p><p class=\"field__value\">김영희</p></div>\n        <button type=\"button\" class=\"tap-target tap-target--block\" data-tap=\"correct\" aria-label=\"전화번호 입력란\"><div class=\"field\"><p class=\"field__label\">전화번호</p><p class=\"field__value field__value--empty\">번호를 입력하세요</p></div></button>\n      </div>"
+  },
+  {
+   "order": 4,
+   "instruction": "모두 입력했어요. 아래 저장 버튼을 눌러보세요.",
+   "html": "\n    <div class=\"app-bar\">연락처 추가</div>\n    <div class=\"flex flex-1 flex-col gap-3 px-4 pad-t\">\n      <div class=\"field\"><p class=\"field__label\">이름</p><p class=\"field__value\">김영희</p></div>\n      <div class=\"field\"><p class=\"field__label\">전화번호</p><p class=\"field__value\">010-1234-5678</p></div>\n      <div class=\"mt-auto pb-6\">\n        <button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"저장\"\n          style=\"width:100%;border-radius:1rem;background:var(--call);color:var(--call-foreground);padding:.75rem 0;font-size:1.125rem;font-weight:700;\">저장</button>\n      </div>\n    </div>"
+  },
+  {
+   "order": 5,
+   "instruction": "연락처가 저장됐어요! 확인 버튼을 눌러 마무리해요.",
+   "html": "\n    <div class=\"done-screen\">\n      <span class=\"hero-emoji\" aria-hidden=\"true\">👏</span>\n      <p class=\"done-screen__msg\">김영희 님이 연락처에 저장됐어요!</p>\n      <button type=\"button\" class=\"tap-target done-screen__btn\" data-tap=\"correct\" aria-label=\"확인\">확인</button>\n    </div>"
+  }
+ ],
+ "message": [
+  {
+   "order": 0,
+   "instruction": "메시지 앱을 눌러보세요.",
+   "html": "<div class=\"phone-wallpaper\"><div class=\"app-grid\">\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">📞</span>\n        <span class=\"app-cell__label\">전화</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">👤</span>\n        <span class=\"app-cell__label\">연락처</span>\n      </span><button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"메시지 앱 열기\">\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">💬</span>\n        <span class=\"app-cell__label\">메시지</span>\n      </span></button>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">📷</span>\n        <span class=\"app-cell__label\">카메라</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">🖼️</span>\n        <span class=\"app-cell__label\">갤러리</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">⚙️</span>\n        <span class=\"app-cell__label\">설정</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">🌐</span>\n        <span class=\"app-cell__label\">인터넷</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">⏰</span>\n        <span class=\"app-cell__label\">시계</span>\n      </span></div></div>"
+  },
+  {
+   "order": 1,
+   "instruction": "새 메시지 작성 버튼을 눌러보세요.",
+   "html": "\n      <div class=\"app-bar\">메시지</div>\n      <div class=\"relative flex-1\">\n        <div class=\"phone-row\"><span aria-hidden=\"true\">👴</span><span>박철수<span class=\"sub\">내일 봅시다</span></span></div>\n        <div class=\"phone-row\"><span aria-hidden=\"true\">🏥</span><span>보건소<span class=\"sub\">예약 안내드립니다</span></span></div>\n        <button type=\"button\" class=\"tap-target fab\" data-tap=\"correct\" aria-label=\"새 메시지 작성\">✏️</button>\n      </div>"
+  },
+  {
+   "order": 2,
+   "instruction": "받는 사람 입력란을 눌러보세요.",
+   "html": "\n      <div class=\"app-bar\">새 메시지</div>\n      <div class=\"flex flex-1 flex-col gap-3 px-4 pad-t\">\n        <button type=\"button\" class=\"tap-target tap-target--block\" data-tap=\"correct\" aria-label=\"받는 사람 입력란\"><div class=\"field field--soft\"><p class=\"field__label\">받는 사람</p><p class=\"field__value field__value--empty\">이름이나 번호 입력</p></div></button>\n        <div class=\"field field--soft\"><p class=\"field__label\">메시지</p><p class=\"field__value field__value--empty\">메시지를 입력하세요</p></div>\n      </div>"
+  },
+  {
+   "order": 3,
+   "instruction": "저장된 연락처에서 '김영희' 님을 눌러 선택해보세요.",
+   "html": "\n      <div class=\"app-bar\">새 메시지</div>\n      <div class=\"flex flex-1 flex-col gap-3 px-4 pad-t\">\n        <div class=\"field field--soft\"><p class=\"field__label\">받는 사람</p><p class=\"field__value field__value--empty\">이름이나 번호 입력</p></div>\n        <p style=\"padding:0 .25rem;font-size:.7rem;color:var(--phone-muted);\">추천 연락처</p>\n        <button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"김영희 선택\"\n          style=\"display:flex;align-items:center;gap:.75rem;border-radius:.75rem;border:1px solid var(--phone-line);padding:.75rem 1rem;text-align:left;\">\n          <span aria-hidden=\"true\">👵</span>\n          <span style=\"font-size:.875rem;color:var(--phone-fg);\">김영희<span class=\"sub\">010-1234-5678</span></span>\n        </button>\n      </div>"
+  },
+  {
+   "order": 4,
+   "instruction": "이번엔 메시지 입력란을 눌러보세요.",
+   "html": "\n      <div class=\"app-bar\">새 메시지</div>\n      <div class=\"flex flex-1 flex-col gap-3 px-4 pad-t\">\n        <div class=\"field field--soft\"><p class=\"field__label\">받는 사람</p><p class=\"field__value\">김영희</p></div>\n        <button type=\"button\" class=\"tap-target tap-target--block\" data-tap=\"correct\" aria-label=\"메시지 입력란\"><div class=\"field field--soft\"><p class=\"field__label\">메시지</p><p class=\"field__value field__value--empty\">메시지를 입력하세요</p></div></button>\n      </div>"
+  },
+  {
+   "order": 5,
+   "instruction": "자주 쓰는 문구 '안녕하세요!'를 눌러 입력해보세요.",
+   "html": "\n      <div class=\"app-bar\">새 메시지</div>\n      <div class=\"flex flex-1 flex-col gap-3 px-4 pad-t\">\n        <div class=\"field field--soft\"><p class=\"field__label\">받는 사람</p><p class=\"field__value\">김영희</p></div>\n        <div class=\"field field--soft\"><p class=\"field__label\">메시지</p><p class=\"field__value field__value--empty\">메시지를 입력하세요</p></div>\n        <p style=\"padding:0 .25rem;font-size:.7rem;color:var(--phone-muted);\">자주 쓰는 문구</p>\n        <div style=\"display:flex;flex-wrap:wrap;gap:.5rem;\">\n          <button type=\"button\" class=\"tap-target chip\" data-tap=\"correct\" aria-label=\"안녕하세요 문구 입력\">안녕하세요!</button>\n          <span class=\"chip chip--muted\">감사합니다</span>\n        </div>\n      </div>"
+  },
+  {
+   "order": 6,
+   "instruction": "메시지가 완성됐어요. 보내기 버튼을 눌러보세요.",
+   "html": "\n      <div class=\"app-bar\">새 메시지</div>\n      <div class=\"flex flex-1 flex-col gap-3 px-4 pad-t\">\n        <div class=\"field field--soft\"><p class=\"field__label\">받는 사람</p><p class=\"field__value\">김영희</p></div>\n        <div class=\"field field--soft\"><p class=\"field__label\">메시지</p><p class=\"field__value\">안녕하세요!</p></div>\n        <div class=\"mt-auto pb-6\" style=\"display:flex;justify-content:flex-end;\">\n          <button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"보내기\"\n            style=\"display:flex;align-items:center;gap:.5rem;border-radius:999px;background:var(--call);color:var(--call-foreground);padding:.75rem 1.5rem;font-size:1rem;font-weight:700;\">\n            보내기 ➤\n          </button>\n        </div>\n      </div>"
+  },
+  {
+   "order": 7,
+   "instruction": "전송 완료! 방금 보낸 말풍선을 눌러 확인해보세요.",
+   "html": "\n      <div class=\"app-bar\">김영희</div>\n      <div class=\"flex flex-1 flex-col justify-end gap-2 px-4 pb-6\">\n        <div style=\"display:flex;justify-content:flex-end;\">\n          <button type=\"button\" class=\"tap-target bubble\" data-tap=\"correct\" aria-label=\"보낸 메시지 확인\">안녕하세요!</button>\n        </div>\n        <p class=\"text-right\" style=\"font-size:.65rem;color:var(--phone-muted);\">전송됨 · 12:30</p>\n      </div>"
+  },
+  {
+   "order": 8,
+   "instruction": "문자를 직접 보내셨어요! 확인 버튼을 눌러 마무리해요.",
+   "html": "\n    <div class=\"done-screen\">\n      <span class=\"hero-emoji\" aria-hidden=\"true\">👏</span>\n      <p class=\"done-screen__msg\">문자 보내기 연습을 모두 마쳤어요!</p>\n      <button type=\"button\" class=\"tap-target done-screen__btn\" data-tap=\"correct\" aria-label=\"확인\">확인</button>\n    </div>"
+  }
+ ],
+ "photo": [
+  {
+   "order": 0,
+   "instruction": "카메라 앱을 눌러보세요.",
+   "html": "<div class=\"phone-wallpaper\"><div class=\"app-grid\">\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">📞</span>\n        <span class=\"app-cell__label\">전화</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">👤</span>\n        <span class=\"app-cell__label\">연락처</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">💬</span>\n        <span class=\"app-cell__label\">메시지</span>\n      </span><button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"카메라 앱 열기\">\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">📷</span>\n        <span class=\"app-cell__label\">카메라</span>\n      </span></button>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">🖼️</span>\n        <span class=\"app-cell__label\">갤러리</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">⚙️</span>\n        <span class=\"app-cell__label\">설정</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">🌐</span>\n        <span class=\"app-cell__label\">인터넷</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">⏰</span>\n        <span class=\"app-cell__label\">시계</span>\n      </span></div></div>"
+  },
+  {
+   "order": 1,
+   "instruction": "가운데 하얀 촬영 버튼을 눌러 사진을 찍어보세요.",
+   "html": "\n      <div class=\"camera-view\">\n        <div class=\"camera-view__frame\" aria-hidden=\"true\">🌷</div>\n        <div class=\"camera-controls\">\n          <span class=\"thumb\" aria-hidden=\"true\"></span>\n          <button type=\"button\" class=\"tap-target shutter\" data-tap=\"correct\" aria-label=\"사진 촬영\"><span class=\"sr-only\">촬영</span></button>\n          <span style=\"font-size:1.5rem;\" aria-hidden=\"true\">🔄</span>\n        </div>\n      </div>"
+  },
+  {
+   "order": 2,
+   "instruction": "찰칵! 왼쪽 아래 작은 사진(미리보기)을 눌러보세요.",
+   "html": "\n      <div class=\"camera-view\">\n        <div class=\"camera-view__frame\" aria-hidden=\"true\">🌷</div>\n        <div class=\"camera-controls\">\n          <button type=\"button\" class=\"tap-target thumb thumb--live\" data-tap=\"correct\" aria-label=\"방금 찍은 사진 보기\">🌷</button>\n          <span class=\"shutter\" aria-hidden=\"true\"></span>\n          <span style=\"font-size:1.5rem;\" aria-hidden=\"true\">🔄</span>\n        </div>\n      </div>"
+  },
+  {
+   "order": 3,
+   "instruction": "사진이 잘 찍혔네요! 하트를 눌러 즐겨찾기에 추가해보세요.",
+   "html": "\n  <div class=\"app-bar\">갤러리</div>\n  <div class=\"flex flex-1 flex-col items-center justify-center gap-6\">\n    <span aria-hidden=\"true\"\n      style=\"display:flex;align-items:center;justify-content:center;height:13rem;width:13rem;border-radius:1rem;background:oklch(0.92 0.005 80 / 0.5);font-size:4.5rem;\">🌷</span>\n    <button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"즐겨찾기 추가\"\n      style=\"display:flex;align-items:center;justify-content:center;height:3.5rem;width:3.5rem;border-radius:999px;background:oklch(0.92 0.005 80 / 0.6);font-size:1.5rem;\">🤍</button>\n  </div>"
+  },
+  {
+   "order": 4,
+   "instruction": "사진 찍기를 배우셨어요! 확인 버튼을 눌러 마무리해요.",
+   "html": "\n    <div class=\"done-screen\">\n      <span class=\"hero-emoji\" aria-hidden=\"true\">👏</span>\n      <p class=\"done-screen__msg\">사진 찍고 확인하기를 모두 마쳤어요!</p>\n      <button type=\"button\" class=\"tap-target done-screen__btn\" data-tap=\"correct\" aria-label=\"확인\">확인</button>\n    </div>"
+  }
+ ],
+ "wifi": [
+  {
+   "order": 0,
+   "instruction": "설정 앱을 눌러보세요.",
+   "html": "<div class=\"phone-wallpaper\"><div class=\"app-grid\">\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">📞</span>\n        <span class=\"app-cell__label\">전화</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">👤</span>\n        <span class=\"app-cell__label\">연락처</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">💬</span>\n        <span class=\"app-cell__label\">메시지</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">📷</span>\n        <span class=\"app-cell__label\">카메라</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">🖼️</span>\n        <span class=\"app-cell__label\">갤러리</span>\n      </span><button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"설정 앱 열기\">\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">⚙️</span>\n        <span class=\"app-cell__label\">설정</span>\n      </span></button>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">🌐</span>\n        <span class=\"app-cell__label\">인터넷</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">⏰</span>\n        <span class=\"app-cell__label\">시계</span>\n      </span></div></div>"
+  },
+  {
+   "order": 1,
+   "instruction": "'연결' 메뉴를 눌러보세요.",
+   "html": "\n      <div class=\"app-bar\">설정</div>\n      <div class=\"flex-1\">\n        <button type=\"button\" class=\"tap-target tap-target--block\" data-tap=\"correct\" aria-label=\"연결 메뉴\">\n          <div class=\"phone-row\"><span aria-hidden=\"true\">📶</span><span>연결<span class=\"sub\">Wi-Fi, 블루투스</span></span></div>\n        </button>\n        <div class=\"phone-row\"><span aria-hidden=\"true\">🔊</span><span>소리 및 진동</span></div>\n        <div class=\"phone-row\"><span aria-hidden=\"true\">🔆</span><span>디스플레이</span></div>\n        <div class=\"phone-row\"><span aria-hidden=\"true\">🔋</span><span>배터리</span></div>\n      </div>"
+  },
+  {
+   "order": 2,
+   "instruction": "'Wi-Fi'를 눌러보세요.",
+   "html": "\n      <div class=\"app-bar\">연결</div>\n      <div class=\"flex-1\">\n        <button type=\"button\" class=\"tap-target tap-target--block\" data-tap=\"correct\" aria-label=\"Wi-Fi 메뉴\">\n          <div class=\"phone-row\"><span aria-hidden=\"true\">📶</span><span>Wi-Fi<span class=\"sub\">꺼짐</span></span></div>\n        </button>\n        <div class=\"phone-row\"><span aria-hidden=\"true\">🎧</span><span>블루투스</span></div>\n        <div class=\"phone-row\"><span aria-hidden=\"true\">✈️</span><span>비행기 모드</span></div>\n      </div>"
+  },
+  {
+   "order": 3,
+   "instruction": "스위치를 눌러 와이파이를 켜보세요.",
+   "html": "\n      <div class=\"app-bar\">Wi-Fi</div>\n      <div class=\"flex-1 px-4 pad-t\">\n        <div style=\"display:flex;align-items:center;justify-content:space-between;border-radius:.75rem;background:oklch(0.92 0.005 80 / 0.5);padding:.75rem 1rem;\">\n          <span style=\"font-size:.875rem;font-weight:600;color:var(--phone-fg);\">Wi-Fi 사용</span>\n          <button type=\"button\" class=\"tap-target toggle\" data-tap=\"correct\" aria-label=\"와이파이 켜기\"></button>\n        </div>\n      </div>"
+  },
+  {
+   "order": 4,
+   "instruction": "우리집 와이파이 이름을 눌러 연결해보세요.",
+   "html": "\n      <div class=\"app-bar\">Wi-Fi</div>\n      <div class=\"flex-1 px-4 pad-t\">\n        <div style=\"display:flex;align-items:center;justify-content:space-between;border-radius:.75rem;background:oklch(0.92 0.005 80 / 0.5);padding:.75rem 1rem;margin-bottom:.75rem;\">\n          <span style=\"font-size:.875rem;font-weight:600;color:var(--phone-fg);\">Wi-Fi 사용</span>\n          <span class=\"toggle toggle--on\" aria-hidden=\"true\"></span>\n        </div>\n        <p style=\"padding:0 .25rem .5rem;font-size:.7rem;color:var(--phone-muted);\">사용 가능한 네트워크</p>\n        <button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"우리집 와이파이 연결\"\n          style=\"display:flex;width:100%;align-items:center;gap:.75rem;border-radius:.75rem;border:1px solid var(--phone-line);padding:.75rem 1rem;text-align:left;\">\n          <span aria-hidden=\"true\">📶</span>\n          <span style=\"font-size:.875rem;color:var(--phone-fg);\">우리집_와이파이</span>\n        </button>\n        <div style=\"display:flex;align-items:center;gap:.75rem;border-radius:.75rem;padding:.75rem 1rem;opacity:.5;margin-top:.5rem;\">\n          <span aria-hidden=\"true\">📶</span>\n          <span style=\"font-size:.875rem;color:var(--phone-muted);\">이웃집_5G</span>\n        </div>\n      </div>"
+  },
+  {
+   "order": 5,
+   "instruction": "와이파이가 연결됐어요! 확인 버튼을 눌러 마무리해요.",
+   "html": "\n    <div class=\"done-screen\">\n      <span class=\"hero-emoji\" aria-hidden=\"true\">👏</span>\n      <p class=\"done-screen__msg\">우리집 와이파이에 연결됐어요!</p>\n      <button type=\"button\" class=\"tap-target done-screen__btn\" data-tap=\"correct\" aria-label=\"확인\">확인</button>\n    </div>"
+  }
+ ],
+ "search": [
+  {
+   "order": 0,
+   "instruction": "인터넷 앱을 눌러보세요.",
+   "html": "<div class=\"phone-wallpaper\"><div class=\"app-grid\">\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">📞</span>\n        <span class=\"app-cell__label\">전화</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">👤</span>\n        <span class=\"app-cell__label\">연락처</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">💬</span>\n        <span class=\"app-cell__label\">메시지</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">📷</span>\n        <span class=\"app-cell__label\">카메라</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">🖼️</span>\n        <span class=\"app-cell__label\">갤러리</span>\n      </span>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">⚙️</span>\n        <span class=\"app-cell__label\">설정</span>\n      </span><button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"인터넷 앱 열기\">\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">🌐</span>\n        <span class=\"app-cell__label\">인터넷</span>\n      </span></button>\n      <span class=\"app-cell\">\n        <span class=\"app-cell__icon\">⏰</span>\n        <span class=\"app-cell__label\">시계</span>\n      </span></div></div>"
+  },
+  {
+   "order": 1,
+   "instruction": "위쪽 검색창을 눌러보세요.",
+   "html": "\n      <div class=\"flex flex-1 flex-col px-4 pad-t\">\n        <button type=\"button\" class=\"tap-target searchbar searchbar--tap\" data-tap=\"correct\" aria-label=\"검색창\">\n          <span aria-hidden=\"true\">🔍</span>\n          <span style=\"color:var(--phone-muted);\">검색어를 입력하세요</span>\n        </button>\n        <div class=\"flex flex-1 items-center justify-center\" style=\"font-size:3rem;\" aria-hidden=\"true\">🌐</div>\n      </div>"
+  },
+  {
+   "order": 2,
+   "instruction": "추천 검색어 '오늘 날씨'를 눌러보세요.",
+   "html": "\n      <div class=\"flex flex-1 flex-col px-4 pad-t\">\n        <div class=\"searchbar\"><span aria-hidden=\"true\">🔍</span><span style=\"color:var(--phone-fg);\">|</span></div>\n        <p style=\"padding:1rem .5rem 0;font-size:.7rem;color:var(--phone-muted);\">추천 검색어</p>\n        <button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"오늘 날씨 검색어 선택\"\n          style=\"margin-top:.5rem;display:flex;width:100%;align-items:center;gap:.75rem;border-radius:.75rem;padding:.75rem;text-align:left;\">\n          <span aria-hidden=\"true\">🔍</span>\n          <span style=\"font-size:.875rem;color:var(--phone-fg);\">오늘 날씨</span>\n        </button>\n        <div style=\"display:flex;align-items:center;gap:.75rem;padding:.75rem;opacity:.6;\">\n          <span aria-hidden=\"true\">🔍</span>\n          <span style=\"font-size:.875rem;color:var(--phone-muted);\">버스 시간표</span>\n        </div>\n      </div>"
+  },
+  {
+   "order": 3,
+   "instruction": "검색 버튼을 눌러보세요.",
+   "html": "\n      <div class=\"flex flex-1 flex-col px-4 pad-t\">\n        <div class=\"searchbar\"><span aria-hidden=\"true\">🔍</span><span style=\"color:var(--phone-fg);\">오늘 날씨</span></div>\n        <div class=\"mt-auto\" style=\"padding-bottom:2rem;\">\n          <button type=\"button\" class=\"tap-target\" data-tap=\"correct\" aria-label=\"검색\"\n            style=\"width:100%;border-radius:1rem;background:var(--call);color:var(--call-foreground);padding:.75rem 0;font-size:1.125rem;font-weight:700;\">🔍 검색</button>\n        </div>\n      </div>"
+  },
+  {
+   "order": 4,
+   "instruction": "검색 결과가 나왔어요. 맨 위 '오늘의 날씨'를 눌러보세요.",
+   "html": "\n      <div class=\"flex flex-1 flex-col px-4 pad-t\">\n        <div class=\"searchbar\" style=\"padding:.5rem 1rem;\"><span aria-hidden=\"true\">🔍</span><span style=\"color:var(--phone-fg);\">오늘 날씨</span></div>\n        <button type=\"button\" class=\"tap-target result\" data-tap=\"correct\" aria-label=\"오늘의 날씨 결과 열기\" style=\"margin-top:1rem;\">\n          <strong>☀️ 오늘의 날씨 — 맑음, 23도</strong>\n          <span>기상청 날씨 정보</span>\n        </button>\n        <div class=\"result\" style=\"margin-top:.75rem;opacity:.6;\">\n          <span style=\"color:var(--phone-muted);\">주간 날씨 예보</span>\n        </div>\n      </div>"
+  },
+  {
+   "order": 5,
+   "instruction": "날씨를 직접 검색하셨어요! 확인 버튼을 눌러 마무리해요.",
+   "html": "\n    <div class=\"done-screen\">\n      <span class=\"hero-emoji\" aria-hidden=\"true\">👏</span>\n      <p class=\"done-screen__msg\">인터넷 검색을 모두 마쳤어요!</p>\n      <button type=\"button\" class=\"tap-target done-screen__btn\" data-tap=\"correct\" aria-label=\"확인\">확인</button>\n    </div>"
+  }
+ ]
+}

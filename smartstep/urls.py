@@ -7,6 +7,7 @@ app_name = 'smartstep'
 urlpatterns = [
     path('courses/', views.course_list, name='course-list'),
     path('courses/<slug:slug>/', views.course_detail, name='course-detail'),
+    path('chapters/<slug:slug>/steps/', views.chapter_steps, name='chapter-steps'),
     path('progress/continue/', views.progress_continue, name='progress-continue'),
     path('progress/<slug:chapter_slug>/', views.progress_update, name='progress-update'),
     path(
