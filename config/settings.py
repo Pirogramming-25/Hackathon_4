@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -126,8 +127,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-# 프론트 HTML이 assets/css/... 처럼 참조하므로 STATIC_URL을 'assets/'로 맞춘다.
-# 덕분에 HTML을 {% static %} 태그로 고치지 않아도 그대로 동작한다.
+# 정적 파일은 templates/assets/ 에 그대로 두고, STATIC_URL만 'assets/'로 맞춘다.
 STATIC_URL = 'assets/'
 STATICFILES_DIRS = [BASE_DIR / 'templates' / 'assets']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# 배포(DEBUG=False)에서는 runserver가 정적 파일을 서빙하지 않으므로 WhiteNoise가 처리한다.
+# 해시 파일명(manifest)은 배포에서만 켠다. 개발 중에 켜면 collectstatic을 다시 돌리기 전까지
+# 수정한 CSS/JS가 화면에 반영되지 않아 프론트 작업이 막힌다.
+if not DEBUG:
+    STORAGES = {
+        'default': {
+            'BACKEND': 'django.core.files.storage.FileSystemStorage',
+        },
+        'staticfiles': {
+            'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+        },
+    }

@@ -1,4 +1,4 @@
-<!doctype html>
+{% load static %}<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script type="module" src="assets/js/app.js"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <script type="module" src="{% static 'js/app.js' %}"></script>
   </head>
   <body>
     <main class="page" id="course-root"></main>
@@ -21,6 +21,6 @@
         <button type="button" data-a11y="hc" aria-pressed="false"><span aria-hidden="true">🌓</span> 고대비 모드</button>
       </div>
     </div>
-    <script type="module" src="assets/js/pages/course.js"></script>
+    <script type="module" src="{% static 'js/pages/course.js' %}"></script>
   </body>
 </html>
