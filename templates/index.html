@@ -1,4 +1,4 @@
-<!doctype html>
+{% load static %}<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
@@ -14,12 +14,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script type="module" src="assets/js/app.js"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <script type="module" src="{% static 'js/app.js' %}"></script>
   </head>
   <body>
     <main class="page page--center">
-      <img src="assets/images/logo.png" alt="스마트 한걸음 로고" width="512" height="512" class="logo" />
+      <img src="{% static 'images/logo.png' %}" alt="스마트 한걸음 로고" width="512" height="512" class="logo" />
       <h1 class="title-xl mt-4">스마트 한걸음</h1>
       <p class="text-lead mt-4">
         설명서 대신 연습장.<br />
@@ -56,6 +56,6 @@
       <p class="text-base mt-10">천천히, 나의 속도로 한 걸음씩 배워요. 🧡</p>
     </main>
 
-    <script type="module" src="assets/js/pages/home.js"></script>
+    <script type="module" src="{% static 'js/pages/home.js' %}"></script>
   </body>
 </html>
