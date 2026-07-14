@@ -1,17 +1,20 @@
-import { courses } from "../courses.js";
-import { getCompleted } from "../progress.js";
+import { api } from "../api.js";
 
-const params = new URLSearchParams(location.search);
-const courseId = params.get("id");
-const course = courses.find((c) => c.id === courseId);
-const root = document.getElementById("course-root");
+async function loadCourse() {
+  const params = new URLSearchParams(location.search);
+  const courseId = params.get("id");
+  const root = document.getElementById("course-root");
 
-if (!course) {
-  root.innerHTML = `
-    <p class="title-md">코스를 찾을 수 없어요.</p>
-    <a class="btn-primary mt-6" href="courses.html">코스 목록으로</a>`;
-} else {
-  const completed = getCompleted();
+  let course;
+  try {
+    course = await api.get(`/courses/${courseId}/`);
+  } catch (err) {
+    root.innerHTML = `
+      <p class="title-md">${err.message || "코스를 찾을 수 없어요."}</p>
+      <a class="btn-primary mt-6" href="courses.html">코스 목록으로</a>`;
+    return;
+  }
+
   document.title = `${course.name} — 스마트 한걸음`;
   root.innerHTML = `
     <a href="index.html" class="back-link">← 처음으로</a>
@@ -22,7 +25,7 @@ if (!course) {
     <ul class="chapter-list mt-8">
       ${course.chapters
         .map((chapter, i) => {
-          const done = completed.includes(chapter.id);
+          const done = chapter.is_completed;
           return `
             <li class="chapter-card">
               <span class="emoji" aria-hidden="true">${chapter.emoji}</span>
@@ -36,7 +39,7 @@ if (!course) {
                 <p class="text-lg mt-2">${chapter.goal}</p>
                 <p class="text-base mt-2">⏱️ 약 ${chapter.minutes}분</p>
               </div>
-              <a href="learn.html?chapter=${chapter.id}" class="btn-primary" style="min-height:3.5rem;padding:0 2rem;">
+              <a href="learn.html?chapter=${chapter.slug}" class="btn-primary" style="min-height:3.5rem;padding:0 2rem;">
                 ${done ? "다시 하기" : "시작하기"}
               </a>
             </li>`;
@@ -44,3 +47,5 @@ if (!course) {
         .join("")}
     </ul>`;
 }
+
+loadCourse();
