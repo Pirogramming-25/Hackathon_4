@@ -12,6 +12,12 @@
 
 제25기 피로그래밍 해커톤 **4조** 프로젝트입니다.
 
+# 배포 주소
+
+'''
+https://smart-hangeoleum.duckdns.org/
+'''
+
 ---
 
 ## 🎯 문제 정의
@@ -75,6 +81,8 @@
 
 > 키오스크·정부24·카카오톡·금융앱 등도 **동일한 구조로 콘텐츠만 추가**하면 확장됩니다.
 
+> 📄 데이터 모델 설계는 [`docs/ERD.md`](./docs/ERD.md), API 명세는 [`docs/API.md`](./docs/API.md) 참고.
+
 ---
 
 ## 🛠️ 기술 스택
@@ -100,7 +108,8 @@ Hackathon_4/
 │   ├── urls.py                  #   전체 URL 라우팅 (페이지 + API)
 │   └── wsgi.py / asgi.py
 ├── smartstep/                   # 학습 도메인 앱
-│   ├── migrations/              #   DB 마이그레이션
+│   ├── migrations/              #   DB 마이그레이션 (초기 코스/챕터/스텝 시드 포함)
+│   ├── fixtures/steps.json      #   스텝 시드 데이터 (마이그레이션에서 읽어옴)
 │   ├── models.py                #   코스 · 챕터 · 스텝 · 진도 모델
 │   ├── views.py                 #   API 로직 (진도 저장 등)
 │   ├── urls.py                  #   API 라우팅
@@ -115,7 +124,7 @@ Hackathon_4/
 ├── docs/                        # 설계 문서
 │   ├── ERD.md                   #   데이터 모델 설계
 │   └── API.md                   #   API 명세
-├── media/                       # 업로드 파일 (스크린샷 등)
+├── media/                       # 업로드 파일용 볼륨 (현재 미사용, 추후 확장 대비 예약)
 ├── .github/
 │   ├── workflows/deploy.yml     #   CI/CD (GitHub Actions 자동 배포)
 │   └── pull_request_template.md
@@ -162,6 +171,18 @@ docker compose down
 > ⚠️ `python manage.py migrate`를 로컬에서 직접 실행하지 마세요.
 > 우리 프로젝트의 DB(MySQL)는 Docker 컨테이너 안에서 동작하며,
 > 마이그레이션은 컨테이너 실행 시 자동으로 처리됩니다.
+> 이때 코스·챕터·스텝 초기 콘텐츠도 데이터 마이그레이션(`0002_seed_content.py`,
+> `0003_seed_steps.py` + `fixtures/steps.json`)으로 함께 자동 생성됩니다.
+
+### Django Admin 접속 (콘텐츠 관리)
+
+관리자 계정이 없다면 컨테이너 안에서 아래 명령으로 생성합니다.
+
+```bash
+docker compose exec web python manage.py createsuperuser
+```
+
+이후 http://localhost:8000/admin 에서 코스·챕터·스텝을 추가·수정할 수 있습니다.
 
 ---
 
@@ -186,13 +207,8 @@ EC2에 이 파일이 있으면 소스 폴더 자리에 빈 폴더가 마운트�
 
 ## 🌿 브랜치 전략
 
-| 브랜치      | 역할                                          |
-| ----------- | --------------------------------------------- |
-| `main`      | 배포용 안정 브랜치                            |
-| `develop`   | 개발 통합 브랜치                              |
-| `feature/*` | 기능별 작업 브랜치 (완료 후 `develop`으로 PR) |
-
-**진행 방식:** `feature/기능명` 브랜치에서 작업 → `develop`으로 PR → 리뷰 후 병합
+`main`(배포) · `develop`(개발 통합) · `feature/*`(기능별 작업) 구조입니다.
+자세한 브랜치·PR·커밋 규칙은 [CONTRIBUTING.md](./CONTRIBUTING.md) 참고.
 
 ---
 
