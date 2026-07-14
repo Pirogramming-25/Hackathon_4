@@ -222,7 +222,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--muted-foreground);
 }
 
-/* ---------- Chapter list  시작하기로 수정함 ---------- */ 
+/* ---------- Chapter list  이거를 시작하기로 수정함 ---------- */ 
 .chapter-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1.25rem; }
 .chapter-card {
   display: flex;
