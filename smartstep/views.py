@@ -102,6 +102,39 @@ def course_detail(request, slug):
 
 @ensure_csrf_cookie
 @require_GET
+def chapter_steps(request, slug):
+    """실습 화면용. 스텝 목록과 이어보기 위치(last_step)를 한 번에 내려준다.
+
+    학습 화면 진입 시 가장 먼저 호출되는 GET이므로, 이후 PATCH/POST에 필요한
+    csrftoken 쿠키를 여기서 확보하게 된다.
+    """
+    try:
+        chapter = Chapter.objects.select_related('course').prefetch_related('steps').get(
+            slug=slug
+        )
+    except Chapter.DoesNotExist:
+        return _error('챕터를 찾을 수 없습니다.', 404)
+
+    progress = Progress.objects.filter(
+        session_key=_session_key(request), chapter=chapter
+    ).first()
+
+    return JsonResponse(
+        {
+            'chapter': _chapter_brief(chapter),
+            'course': {'slug': chapter.course.slug, 'name': chapter.course.name},
+            'steps': [
+                {'order': s.order, 'instruction': s.instruction, 'html': s.html}
+                for s in chapter.steps.all()
+            ],
+            'is_completed': progress.is_completed if progress else False,
+            'last_step': progress.last_step if progress else 0,
+        }
+    )
+
+
+@ensure_csrf_cookie
+@require_GET
 def progress_continue(request):
     """이어하기 배너용. 완료되지 않은 진도 중 가장 최근 1건. 없으면 null."""
     progress = (
