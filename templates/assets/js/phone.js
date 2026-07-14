@@ -16,18 +16,31 @@ const APPS = [
 export function statusBar() {
   return `
     <div class="phone__status">
-      <span>12:30</span>
-      <span aria-hidden="true">📶 🔋</span>
+      <span class="phone__time">12:30</span>
+      <span class="camera-cutout"></span>
+      <span class="status-icons" aria-hidden="true">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none">
+          <path d="M8.5 10.2C9.16274 10.2 9.7 9.66274 9.7 9C9.7 8.33726 9.16274 7.8 8.5 7.8C7.83726 7.8 7.3 8.33726 7.3 9C7.3 9.66274 7.83726 10.2 8.5 10.2Z" fill="currentColor"/>
+          <path d="M5.6 6.5C6.4 5.7 7.4 5.3 8.5 5.3C9.6 5.3 10.6 5.7 11.4 6.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M3 3.9C4.7 2.3 6.5 1.5 8.5 1.5C10.5 1.5 12.3 2.3 14 3.9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="none">
+          <rect x="0" y="8" width="3" height="4" fill="currentColor"/>
+          <rect x="5" y="6" width="3" height="6" fill="currentColor"/>
+          <rect x="10" y="3" width="3" height="9" fill="currentColor"/>
+          <rect x="15" y="0" width="3" height="12" fill="currentColor"/>
+        </svg>
+        <svg width="24" height="12" viewBox="0 0 24 12" fill="none">
+          <rect x="0.5" y="0.5" width="20" height="11" rx="2.5" stroke="currentColor"/>
+          <rect x="2" y="2" width="17" height="8" rx="1.3" fill="currentColor"/>
+          <rect x="21.5" y="4" width="2" height="4" rx="1" fill="currentColor"/>
+        </svg>
+      </span>
     </div>`;
 }
 
 export function navBar() {
-  return `
-    <div class="phone__nav" aria-hidden="true">
-      <span>|||</span>
-      <span class="dot"></span>
-      <span>◁</span>
-    </div>`;
+  return `<div class="phone__nav" aria-hidden="true"></div>`;
 }
 
 export function phoneFrame(innerHtml) {
