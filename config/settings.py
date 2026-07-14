@@ -144,3 +144,7 @@ if not DEBUG:
             'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
         },
     }
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://smart-hangeoleum.duckdns.org',
+]
